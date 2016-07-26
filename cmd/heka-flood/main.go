@@ -190,8 +190,7 @@ func (r *randomDataMaker) Read(p []byte) (n int, err error) {
 				val = val % 27 // space + a-z
 				if val == 0 {  
 				  val = 32     // let 0 be a space
-				} 
-				else {
+				} else {
 				   val += 141  //+= 'a'
 				}
 
