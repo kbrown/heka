@@ -185,8 +185,16 @@ func (r *randomDataMaker) Read(p []byte) (n int, err error) {
 		for i := 0; i < 8; i++ {
 			val = valStash & 0xff
 			if r.asciiOnly {
-				val = val % 94
-				val += 32
+				//val = val % 94
+				//val += 32
+				val = val % 27 // space + a-z
+				if val == 0 {  
+				  val = 32     // let 0 be a space
+				} 
+				else {
+				   val += 141  //+= 'a'
+				}
+
 			}
 			p[offset] = byte(val)
 			todo--
